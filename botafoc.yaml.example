@@ -1,0 +1,24 @@
+# Botafoc configuration
+# Place this file at ~/.config/botafoc/botafoc.yaml
+# or set BOTAFOC_CONFIG to a custom path.
+
+# Port the reverse proxy listens on (default: 8080)
+# Env: BOTAFOC_LISTEN_PORT
+listen_port: 8080
+
+# Base domain suffix for subdomain matching (default: .localhost)
+# .localhost resolves to 127.0.0.1 per RFC 6761 — no /etc/hosts needed.
+# Env: BOTAFOC_BASE_DOMAIN
+base_domain: .localhost
+
+# Run the proxy as a background daemon (default: false)
+# When true, the proxy survives TUI exits. Reconnect by running botafoc again.
+# Env: BOTAFOC_DAEMON
+daemon: false
+
+# Predefined routes loaded on startup
+routes:
+  - subdomain: app
+    target: 3000
+  - subdomain: api
+    target: 8081
